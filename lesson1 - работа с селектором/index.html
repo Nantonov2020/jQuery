@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 1</title>
+    <script src="jquery.js"></script>
+    <style>
+        .even{
+            color:blue;
+        }
+        .odd{
+            color:red;
+        }
+    </style>
+    <script>
+        //jQuery
+
+          $(document).ready(function (){
+            //Базовые селекторы
+            //$() == jQuery()
+
+              //Выборка всего
+              $('*').css('color','green');
+
+            // Выборка по тегу HTML
+            $('p').css('color','red');
+
+            //Выборка по классу
+              $('.p2').css('color','orange');
+
+              // Выборка по id
+              $('#p1').css('color','blue');
+
+              // Комбинированные селекторы
+
+              //Несколько элементов
+              $('#p1,.p2').css('color','yellow');
+
+              //Вложенный тег span в ul
+              $('ul li span').css('color','violet');
+
+              //Выбрать все span, которые являются прямыми потомками
+              $('li a > span').css('color','black');
+
+              //Выбрать p который следует непосредственно за .p2
+              $('.p2 + p').css('color','gold');
+              $('.p2').next().css('color','gold');
+
+              // Выбор следующих элементов
+              $('.p2 ~ a').css('color','brown');
+              $('ul li:eq(1) ~ li').css('color','brown');
+
+              //Селекторы по атрибутам
+              $('a[href]').css('background-color','grey');
+              $('a[href="http://yandex.ru"]').css('background-color','pink');
+              $('a[href!="http://yandex.ru"]').css('background-color','lavender');
+
+              // Выделение где https  в начале строки.
+              $('a[href^="https://"]').css('background-color','yellowgreen');
+
+              // Выделение где ru в конце стоит
+              $('a[href$=".ru"]').css('background-color','lime');
+
+              // Выделение где ya в середине
+              $('a[href*="ya"]').css('background-color','tan');
+
+              //Совместное условие
+              $('a[href*="ya"][class*="links_1"]').css('background-color','khaki');
+
+              //Фильтры
+
+              //четные
+              //$('.second li:even a').addClass('even');
+              $('.second li:even a').css('color','blue');
+              //нечетные
+              //$('.second li:odd a').addClass('odd');
+              $('.second li:odd a').css('color','red');
+
+              // Выбор первого элемента.
+              $('.third li:first a').css('color','plum');
+
+              // Выбор последнего элемента.
+              $('.third li:last a').css('color','LimeGreen');
+
+              //Выбор элемента по номеру
+              $('.third li:eq(2) a').css('color','Tomato');
+
+              //Выбор элемента по отсутствию селектора
+              $('i span:not(.beef)').css('color','OrangeRed');
+
+              //:gt - элементы с индексом, превышающем n
+              $('.fourth li:gt(7) a').css('color','Fuchsia');
+
+              //:lt - элементы с индексом меньшим, чем n
+              $('.fourth li:lt(2) a').css('color','SaddleBrown');
+
+              //Выбор всех заголовков
+              $(':header').css('color','IndianRed');
+
+              /*
+              $(':hidden'); - выбирает все скрытые элементы страницы.
+
+              $(':visible'); - выбирает все видимые элементы.
+              */
+
+              // Фильтры по содержимому
+              //Элементы, содержащие определенный текст
+              $('p:contains(Параграф 3)').css('color','DarkGreen');
+
+              // спрятать третий параграф - $('p:contains(Параграф 3)').hide();
+
+              // Выбрать все пустые теги.
+              $('p:empty').css('color','ForestGreen');
+
+              //Выбирает те элементы, потомки которых содержат указанный селектор
+              $('.class5:has(span)').css('color','MediumAquamarine');
+
+        });
+
+        //Чистый JavaScript
+/*        window.onload = function (){
+            let p = document.getElementById('p1');
+            p.style.color = 'red';
+
+            document.getElementsByClassName('mylink')[0].style.color='green';
+        };
+ */
+
+    </script>
+</head>
+<body>
+
+<h1>Заголовок H1</h1>
+
+
+<p id="p1">Параграф 1</p>
+<p class="p2">Параграф 2</p>
+<p>Параграф 3</p>
+<p>Параграф 4</p>
+<span>Важный текст</span>
+<br>
+<h3>Заголовок h3</h3>
+<h3>Ещё один заголовок h3</h3>
+
+<ul>
+    <li><a href="#1" class="mylink"> <span>Важный текст 1</span></a></li>
+    <li><a href="#2" class="mylink">2</a></li>
+    <li><a href="#3" class="mylink links_1">3</a></li>
+    <li><a href="#4" class="mylink">4</a></li>
+    <li><a href="#5" class="mylink">5</a></li>
+    <li><a href="http://yandex.ru" class="mylink">http://yandex.ru</a></li>
+    <li><a href="https://yandex.ru" class="mylink">https://yandex.ru</a></li>
+    <li><a href="http://ya.ru" class="mylink links_1">http://ya.ru</a></li>
+    <li><a href="http://google.ru" class="mylink">http://google.ru</a></li>
+    <li><a href="http://google.com" class="mylink">http://google.com</a></li>
+    <li><a href="http://nantonov2020.github.io" class="mylink">http://nantonov2020.github.io</a></li>
+</ul>
+
+<ul class="second">
+    <li><a href="#">It's my life</a></li>
+    <li><a href="#">She wants to live abroad</a></li>
+    <li><a href="#">What's you think about it?</a></li>
+    <li><a href="#">What's your wife's name?</a></li>
+    <li><a href="#">I'd like to become a superman.</a></li>
+</ul>
+
+<ul class="third">
+    <li><a href="#">He doesn't want to change his life</a></li>
+    <li><a href="#">It's such a difficult definition</a></li>
+    <li><a href="#">The best in world, the second in Siberia</a></li>
+    <li><a href="#">My sister has a very big car</a></li>
+    <li><a href="#">It's too hot</a></li>
+</ul>
+
+<i><span>Dinamo</span></i><br>
+<i><span class="beef">Spartak</span></i><br>
+<i><span>CSKA</span></i><br>
+<i><span>Zenit</span></i><br>
+<i><span>Torpedo</span></i><br>
+
+<ul class="fourth">
+    <li><a href="#">This boy is very lazy</a></li>
+    <li><a href="#">I don`t want to drink</a></li>
+    <li><a href="#">She'd like to drink of glass of vodka</a></li>
+    <li><a href="#">They are stupid</a></li>
+    <li><a href="#">She's a very beautiful girl</a></li>
+    <li><a href="#">Their ideas are very simple</a></li>
+    <li><a href="#">I don't want to know this truth</a></li>
+    <li><a href="#">You need to remember this rule</a></li>
+    <li><a href="#">I must learn these rules</a></li>
+    <li><a href="#">My father is a businessman</a></li>
+    <li><a href="#">Our company is too big</a></li>
+    <li><a href="#">Who helps her?</a></li>
+    <li><a href="#">Is it a wonderful thing?</a></li>
+</ul>
+
+<ul class="class5">
+    <li><a href="#">He doesn't want to change his life</a></li>
+    <li><span>Lorem</span></li>
+    <li><span>Lorem</span></li>
+    <li><a href="#">My sister has a very big car</a></li>
+    <li><a href="#">It's too hot</a></li>
+</ul>
+
+
+</body>
+
+</html>

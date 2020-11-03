@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Вебинар Ajax</title>
+    <script>
+        //JSON - преобразование.
+        let json = '{\
+            "name": "Igor",\
+            "age": 24\
+        }';
+        console.log(json);
+        let jsonObj = JSON.parse(json);
+        console.log(jsonObj);
+        console.log(jsonObj.name + ' ' + jsonObj.age);
+
+        //Преобразование из объекта в строку формата json
+        // указываем один параметр - name.
+        let objToStr = JSON.stringify(jsonObj, ["name"]);
+        console.log(objToStr);
+
+        //Преобразование из объекта в строку формата json
+        // Не указываем поле - переводятся все значения.
+        let objToStr2 = JSON.stringify(jsonObj);
+        console.log(objToStr2);
+
+        //Работа с Ajax - JavaScript
+
+        //Синхронный запрос.
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'person.json', false);
+        xhr.send();
+
+        if (xhr.status !=200){
+            console.log('Ошибка: ' + xhr.status + ' - ' + xhr.statusText);
+        }else{
+            console.log('Ok! - ответ на синхронный запрос.');
+            console.log(xhr.statusText);
+            console.log(xhr.responseText);
+        }
+
+        //Асинхронный запрос.
+        xhr.open('GET', 'person.json', true);
+        xhr.send();
+
+        xhr.onreadystatechange = function (){
+            //Эта функция выполнится при получении ответа на запрос.
+            if (xhr.status !=200){
+                console.log('Ошибка: ' + xhr.status + ' - ' + xhr.statusText);
+            }else{
+                console.log('Ok! - ответ на асинхронный запрос.');
+                console.log(xhr.statusText);
+                console.log(xhr.responseText);
+            }
+        };
+
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

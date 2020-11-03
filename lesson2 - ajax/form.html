@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        input{
+            margin:3px;
+        }
+        .green{
+            color:green;
+        }
+        .red{
+            color:red;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            let name = $('#name');
+            let address = $('#address');
+            let age = $('#age');
+            let result = $('.result');
+
+            //$('#btn').onclick() - возможное написание.
+            $('#btn').on('click', function(){
+                let data = 'name='+name.val()+'&address='+address.val()+'&age='+age.val();
+                $.post('validator.php',data,function(dataResponce,textStatus){
+                    console.log(dataResponce);
+
+                    let res = (dataResponce.status == 'error') ? 'форма заполнена неправивильно' : 'Форма заполнена верно.';
+
+                    result.text(res);
+                    if (dataResponce.status == 'error'){
+                        result.addClass('red').removeClass('green');
+                    }else{
+                        result.addClass('green').removeClass('red');
+                    }
+
+                }, 'json'); // json - указали тип возвращаемых данных.
+                // В данном случае сразу переведет в объект.
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<div class="form">
+    <input type="text" name="name" id="name" placeholder="Введите имя"><br>
+    <input type="text" name="address" id="address" placeholder="Введите адрес"><br>
+    <input type="text" name="age" id="age" placeholder="Введите возраст"><br>
+    <button id="btn">Отправить</button>
+    <br>
+    <div class="result"></div>
+
+</div>
+
+
+</body>
+</html>
