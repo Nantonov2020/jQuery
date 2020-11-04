@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 4 - jQuery</title>
+    <script src="jquery.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            let d1 = $('.d1');
+            console.log('Ширина контейнера: ' + d1.width());
+            console.log('Высота контейнера: ' + d1.height());
+
+            console.log('Ширина контейнера + padding: ' + d1.innerWidth());
+            console.log('Высота контейнера + padding: ' + d1.innerHeight());
+
+            console.log('Ширина контейнера + padding + border: ' + d1.outerWidth());
+            console.log('Высота контейнера + padding + border: ' + d1.outerHeight());
+
+            console.log('Ширина контейнера + padding + border + margin: ' + d1.outerWidth(true));
+            console.log('Высота контейнера + padding + border + margin: ' + d1.outerHeight(true));
+
+        });
+    </script>
+
+    <style>
+        .d1{
+            padding: 10px;
+            margin: 12px;
+            border: 2px solid red;
+            background-color: antiquewhite;
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="d1">
+        Контейнер
+    </div>
+    <hr>
+    <img src="img.png" alt="jQuery">
+</body>
+</html>

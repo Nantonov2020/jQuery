@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 4 - jQuery</title>
+    <script src="jquery.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('.btn1').on('click',function (){
+                $('.d3').empty();
+            })
+
+            $('.btn2').on('click',function (){
+                $('.d4').remove();
+            })
+
+            $('.btn3').on('click',function (){
+                $('.d3, .d4').append('<em>Текст вставлен в контейнер</em>');
+            })
+
+            let el;
+            $('.btn4').on('click',function (){
+                    el = $('.d5').detach();
+            })
+
+            $('.btn5').on('click',function (){
+                //Возвращаем элемент
+                $('.main').append(el);
+            })
+
+
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="main">
+    <div class="d3" style="border: 1px solid #000"><b>D3 - Полужирный текст</b></div>
+    <div class="d4" style="border: 1px solid #000"><b>D4 - Полужирный текст</b></div>
+    <div class="d5" style="border: 1px solid #000"><b>D5 - Полужирный текст</b></div>
+</div>
+    <button class="btn1">Очистить содержимое элемента.</button>
+    <br><br>
+    <button class="btn2">Удалить элемент полностью.</button>
+    <br><br>
+    <button class="btn3">Вставить содержимое </button>
+    <br><br>
+    <button class="btn4">Удалить не полностью</button>
+    <br><br>
+    <button class="btn5">Восстановить ранее удаленный элемент D5</button>
+
+
+<hr>
+<img src="img2.png" alt="">
+
+</body>
+</html>

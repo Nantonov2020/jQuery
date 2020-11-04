@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 4 - jQuery</title>
+    <script src="jquery.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('h1').clone().css('background-color','lime').appendTo($('.d2'));
+        });
+    </script>
+
+</head>
+<body>
+<h1>Заголовок клонирован и перемещен</h1>
+<div>
+    Контейнер
+    <div class="d2" style="border: 1px solid #000">
+        Внутри контейнера
+    </div>
+</div>
+<p class="p1">Library </p>
+<p class="newClassUserMain"> Example </p>
+</body>
+</html>

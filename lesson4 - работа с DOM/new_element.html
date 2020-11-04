@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 4 - jQuery</title>
+    <style>
+        .red{
+            color:red;
+            font-size: 30px;
+        }
+    </style>
+    <script src="jquery.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            let newEl = document.createElement('p');
+            newEl.innerHTML = '<b>Новый созданный параграф</b>';
+            newEl.classList.add('red');
+            $('.new_el').append(newEl);
+
+            $('.new_el').append('<p class="red"><b>Параграф № 2</b></p>');
+
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="new_el" style="border: 1px solid #000">
+    Контейнер для новых элементов.
+</div>
+
+
+</body>
+</html>

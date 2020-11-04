@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 4 - jQuery</title>
+    <script src="jquery.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('.d2').after('<h3>Третий уровень после d2!</h3>');
+
+            $('p').after(function (){
+                return '<div>' + this.className + '</div>'; // После каждого параграфа добавляем еще один div
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    <div style="border: 1px solid #000">
+        Контейнер
+        <div class="d2" style="border: 1px solid #000">
+            Внутри контейнера
+        </div>
+    </div>
+
+    <p class="p1">Library </p>
+    <p class="newClassUserMain"> Example </p>
+
+</body>
+</html>

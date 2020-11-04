@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 4 - jQuery</title>
+    <script src="jquery.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('.d2').append($('h1'));//Переместили эелемент h1 внутрь .d2
+            $('.d2').append('<p>Paragraph</p>');
+
+            $('.p1').append(document.createTextNode('jQuery!!!')); // добавление текста.
+
+            $('<h2>Second level heading</h2>').appendTo($('.d2')) // сначала указывается что добавляется,
+            // потом куда добавляется.
+
+        });
+    </script>
+
+
+</head>
+<body>
+<h1>Заголовок</h1>
+
+<div>
+    Контейнер
+    <div class="d2" style="border: 1px solid #000">
+        Внутри контейнера
+    </div>
+</div>
+
+<p class="p1">Library </p>
+</body>
+</html>
