@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - 5 lesson</title>
+    <script src="jquery.js"></script>
+
+    <script>
+
+        // jQuery == $
+        jQuery.noConflict();
+        jQuery(document).ready(function($){ // $ работает только внутри функции. Method 1
+            console.log('jQuery $', $);
+        });
+
+        (function ($){// $ работает только внутри функции. Method 2.
+            console.log('jQuery $ 2', $);
+        })(jQuery);
+
+        console.log(jQuery);
+        console.log($);
+
+    </script>
+    <!-- Подключаем стороннюю библиотеку -->
+
+</head>
+<body>
+
+</body>
+</html>

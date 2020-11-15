@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sub</title>
+    <script src="jquery.js"></script>
+    <script>
+
+        //!!! Метод sub() исключен из jQuery с версии 1.9.
+
+        (function (){
+            let sub$ = $; // ссылка
+            console.log(sub$);
+            sub$.fn.myNewMethod = function(){
+                return 'Значение из нашего метода';
+            }
+        })();
+
+        // Добавление новых методов.
+        $.fn.extend({
+            open: function(){
+                return this.show(1000);
+            },
+            close: function (time){
+                return this.hide(time);
+            },
+            closeNormal: function (){
+                return this.hide(1000);
+            },
+            closeFast: function (){
+                return this.hide(300);
+            }
+        });
+
+        $(document).ready(function (){
+            console.log($.fn.myNewMethod());
+            console.log($('body').myNewMethod());
+
+            $('.d1').closeNormal();
+            setTimeout(function (){
+                $('.d1').open();
+            },1200);
+        });
+
+    </script>
+</head>
+<body>
+    <div class="d1">Содержимое контейнера</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - 5 lesson</title>
+    <script src="jquery.js"></script>
+
+    <script>
+        // $ = jQuery
+            //JS - ожидание загрузки всего окна.
+            window.onload = function(){
+                console.log('Окно готово - window.onload');
+            };
+
+            //jQuery - метод № 2.
+            $(window).on('load',function (){
+                console.log('Окно готово - jQuery');
+            });
+
+            //Метод 3 - дожидаемся загрузки документа
+            $(document).ready(function(){
+                //Изменение элементов
+                $('.d1').text('Текст создан с помощью jQuery').css('color','red');
+
+                //Создание элементов
+                $('<b>Полужирный текст</b>').appendTo($('body'));
+                console.log('DOM модель готово - jQuery');
+
+            });
+
+            //Метод 4 - дожидаемся загрузки документа.
+            $(function(){
+                console.log('DOM модель готово - jQuery. Method 2');
+            });
+
+            //-------------------------------------------------------------------
+
+            $(function(){
+                console.log(getName('Igor'));
+            });
+
+            $.holdReady(true);
+            //$.holdReady(true);
+
+            setTimeout(function (){
+                $.getScript('main.js', function (){
+                    $.holdReady(false);
+                    //$.holdReady(false);
+                });
+            },1000);
+
+    </script>
+
+</head>
+<body>
+
+    <div class="d1"></div>
+
+</body>
+</html>
